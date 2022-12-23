@@ -116,6 +116,7 @@ export default function ProductCatalog() {
     setGridArr(gridArrl)
   }
   useEffect(() => {generateCards(data)}, [data])
+  useEffect(() => {fetchProducts()}, [])
 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -182,7 +183,7 @@ export default function ProductCatalog() {
           </Grid>
           <Grid sx={2}>
             <Button onClick={fetchProducts}>
-              Send Request
+              Products Search
             </Button>
           </Grid>
           

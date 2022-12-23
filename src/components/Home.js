@@ -38,6 +38,18 @@ function Home() {
           <Authenticate/>
          
         </Box>
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Typography fontSize={60}>
+            Alabaster
+          </Typography>
+        </Box>
       </Container>
     </ThemeProvider>
   );
