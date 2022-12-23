@@ -12,15 +12,9 @@ export function Authenticate() {
     const options = {
         method : 'POST',
         credentials: "include",
-        // credentials:'same-origin',
         headers :{
           'Content-Type': 'application/json',
-          // 'Access-Control-Allow-Origin':'*'
         }
-        // mode:'cors',
-        // mode:'no-cors',
-        // body:JSON.stringify(document.cookie)
-        // body:document.cookie
     }
     const handleSubmit = async () => {
     try{

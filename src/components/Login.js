@@ -12,10 +12,14 @@ import { store } from '../store/features/userProfileStore'
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import NavBar from './NavBar';
-// import Button from '@mui/material/Button';
-import Snackbar from '@mui/material/Snackbar';
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 // import Cookies from 'js-cookie'
 // import {useCookies} from 'react-cookie'
+
+const theme = createTheme();
 
 const Login=()=>{
   
@@ -76,7 +80,8 @@ const Login=()=>{
         else {
           dispatch(login())
           dispatch(store(json))
-          navigate("/dashboard")
+          // navigate("/dashboard")
+          navigate("/products")
         }
       }else{
         setFail(true)
@@ -102,6 +107,17 @@ const Login=()=>{
   const avatarStyle={backgroundColor:'#1bbd7e'}
   const btnstyle={margin:'8px 0'}
   return(
+    <ThemeProvider theme={theme}>
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <Box
+        sx={{
+          marginTop: 8,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
       <Grid>
         <NavBar/>
           <Paper elevation={10} style={paperStyle}>
@@ -172,6 +188,9 @@ const Login=()=>{
               {/* <Authenticate/> */}
           </Paper>
       </Grid>
+      </Box>
+      </Container>
+    </ThemeProvider>
   )
 }
 

@@ -73,10 +73,10 @@ const router = createBrowserRouter([
     path: '/login',
     element:<Login/>
   },
-  {
-    path:'/adminupload',
-    element:<PrivateRoute><AdminProducts/></PrivateRoute>
-  },
+  // {
+  //   path:'/adminupload',
+  //   element:<PrivateRoute><AdminProducts/></PrivateRoute>
+  // },
   {
     path:'/createproducts',
     element:<PrivateRoute><CreateProductForm/></PrivateRoute>

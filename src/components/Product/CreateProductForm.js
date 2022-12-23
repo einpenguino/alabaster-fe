@@ -68,8 +68,10 @@ export default function CreateProduct() {
   }
   return (
     <ThemeProvider theme={theme}>
-      <NavBar/>
-      <Container component="main" maxWidth="xs">
+      
+      <Container component="main" maxWidth="s">
+        <NavBar/>
+        <Container component="main" maxWidth="xs">
         <CssBaseline />
         
         <Box
@@ -80,9 +82,6 @@ export default function CreateProduct() {
             alignItems: 'center',
           }}
         >
-          {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar> */}
           <Typography component="h1" variant="h5">
             Create a product!
           </Typography>
@@ -180,7 +179,7 @@ export default function CreateProduct() {
             </Grid>
           </Box>
         </Box>
-        {/* <Copyright sx={{ mt: 5 }} /> */}
+        </Container>
       </Container>
     </ThemeProvider>
   );

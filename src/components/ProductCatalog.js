@@ -12,6 +12,10 @@ import SkinTypeToggles from './Toggle/skinTypeToggles';
 import Button from '@mui/material/Button';
 import ProductCard from './Product/ProductCard'
 import DirIngredientsToggle from './Toggle/DirIngredientsAutocomplete';
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+// import NavBarV1 from './NavBarv1';
 
 
 // const Item = styled(Paper)(({ theme }) => ({
@@ -21,6 +25,8 @@ import DirIngredientsToggle from './Toggle/DirIngredientsAutocomplete';
 //   textAlign: 'center',
 //   color: theme.palette.text.secondary,
 // }));
+
+const theme = createTheme();
 
 export default function ProductCatalog() {
 // Product type search fields
@@ -124,74 +130,87 @@ export default function ProductCatalog() {
   };
   // useEffect(() => {console.log(`data ${data}`)}, [data])
   return (
-    
-    <Box sx={{ flexGrow: 1 }}>
-      
-      <Grid container spacing={2}>
-        <Grid xs={12}>
-          <NavBar/>
-        </Grid>
-        <Grid xs={12}>
-          <Typography fontSize={20} align='center'>
-            <strong>Products</strong>
-          </Typography>
-        </Grid>
+    <ThemeProvider theme={theme}>
+    <Container component="main" maxWidth="s">
+      <CssBaseline />
+      <Box
+        sx={{
+          marginTop: 8,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+      <Box sx={{ flexGrow: 1 }}>
         
-        {/* <Grid xs={6}>
-        <TablePagination
-          component="div"
-          count={100}
-          page={page}
-          onPageChange={handleChangePage}
-          rowsPerPage={rowsPerPage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
-        </Grid> */}
-        <Grid xs={4}>
-          <div align='center'>
-            <ProductTypeToggles parentFormat={productType} setFormatsParent={setProductType}/>
-          </div>
-        </Grid>
-        <Grid xs={4}>
-          <div align='left'>
-            <SkinTypeToggles parentFormat={skinType} setFormatsParent={setSkinType}/>
-          </div>
-        </Grid>
-        <Grid xs={2}>
-          <div align='left'>
-            <Typography>
-              {gridArr? `Products Found: ${gridArr.length}`:null}
+        <Grid container spacing={2}>
+          <Grid xs={12}>
+            <NavBar/>
+          </Grid>
+          <Grid xs={12}>
+            <Typography fontSize={20} align='center'>
+              <strong>Products</strong>
             </Typography>
-          </div>
-        </Grid>
-        <Grid sx={2}>
-          <Button onClick={fetchProducts}>
-            Send Request
-          </Button>
+          </Grid>
+          
+          {/* <Grid xs={6}>
+          <TablePagination
+            component="div"
+            count={100}
+            page={page}
+            onPageChange={handleChangePage}
+            rowsPerPage={rowsPerPage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
+          </Grid> */}
+          <Grid xs={4}>
+            <div align='center'>
+              <ProductTypeToggles parentFormat={productType} setFormatsParent={setProductType}/>
+            </div>
+          </Grid>
+          <Grid xs={4}>
+            <div align='left'>
+              <SkinTypeToggles parentFormat={skinType} setFormatsParent={setSkinType}/>
+            </div>
+          </Grid>
+          <Grid xs={2}>
+            <div align='left'>
+              <Typography>
+                {gridArr? `Products Found: ${gridArr.length}`:null}
+              </Typography>
+            </div>
+          </Grid>
+          <Grid sx={2}>
+            <Button onClick={fetchProducts}>
+              Send Request
+            </Button>
+          </Grid>
+          
+          {/* <Grid xs={12}>
+            <div align='center'>
+              <DirIngredientsToggle parentFormat={ingredients} setFormatsParent={setIngredients}/>
+            </div>
+          </Grid> */}
+          {/* <Grid xs={4}>
+            <Item>xs=4</Item>
+          </Grid>
+          <Grid xs={8}>
+            <Item>xs=8</Item>
+          </Grid> */}
+          {/* {data? data.forEach(element => {
+          <Grid sx={2}>
+            <ProductCard/>
+          </Grid>
+          })
+          :
+          null} */}
+          {gridArr}
+        
         </Grid>
         
-        {/* <Grid xs={12}>
-          <div align='center'>
-            <DirIngredientsToggle parentFormat={ingredients} setFormatsParent={setIngredients}/>
-          </div>
-        </Grid> */}
-        {/* <Grid xs={4}>
-          <Item>xs=4</Item>
-        </Grid>
-        <Grid xs={8}>
-          <Item>xs=8</Item>
-        </Grid> */}
-        {/* {data? data.forEach(element => {
-        <Grid sx={2}>
-          <ProductCard/>
-        </Grid>
-        })
-        :
-        null} */}
-        {gridArr}
-      
-      </Grid>
-      
-    </Box>
+       </Box>
+       </Box>
+      </Container>
+    </ThemeProvider>
   );
 }
