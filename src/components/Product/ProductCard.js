@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import Box from '@mui/material/Box';
 const img = require('../../media/skincare.png')
 
 export default function ProductCard({ name, price, type, sensitive, skintype}) {
@@ -13,7 +14,9 @@ export default function ProductCard({ name, price, type, sensitive, skintype}) {
     }
 
   return (
-    <Card sx={{ maxWidth: 300 }}>
+    <Box sx={{ boxShadow: 2 }}>
+    <Card sx={{ width: 300,
+      height: 350 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -40,5 +43,6 @@ export default function ProductCard({ name, price, type, sensitive, skintype}) {
         </CardContent>
       </CardActionArea>
     </Card>
+    </Box>
   );
 }

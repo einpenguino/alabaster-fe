@@ -164,23 +164,25 @@ export default function ProductCatalog() {
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
           </Grid> */}
-          <Grid xs={4}>
-            <div align='center'>
-              <ProductTypeToggles parentFormat={productType} setFormatsParent={setProductType}/>
-            </div>
-          </Grid>
-          <Grid xs={4}>
-            <div align='left'>
-              <SkinTypeToggles parentFormat={skinType} setFormatsParent={setSkinType}/>
-            </div>
-          </Grid>
           <Grid xs={2}>
-            <div align='left'>
+            <div align='right'>
               <Typography>
                 {gridArr? `Products Found: ${gridArr.length}`:null}
               </Typography>
             </div>
           </Grid>
+          <Grid xs={8}>
+            <div align='center'>
+              <ProductTypeToggles parentFormat={productType} setFormatsParent={setProductType}/>
+              <SkinTypeToggles parentFormat={skinType} setFormatsParent={setSkinType}/>
+            </div>
+          </Grid>
+          {/* <Grid xs={4}>
+            <div align='left'>
+              <SkinTypeToggles parentFormat={skinType} setFormatsParent={setSkinType}/>
+            </div>
+          </Grid> */}
+          
           <Grid sx={2}>
             <Button onClick={fetchProducts}>
               Products Search
@@ -205,12 +207,18 @@ export default function ProductCatalog() {
           })
           :
           null} */}
-          {gridArr}
-        
+          
+
         </Grid>
         
        </Box>
+       <Box margin={1}>
+        <Grid container spacing={2} sx={{margin:'0 5%'}}>
+        {gridArr}
+        </Grid>
        </Box>
+       </Box>
+       
       </Container>
     </ThemeProvider>
   );

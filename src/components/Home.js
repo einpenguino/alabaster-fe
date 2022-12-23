@@ -1,3 +1,4 @@
+import './Home.css'
 import NavBar from './NavBar';
 import { Authenticate } from './authTest';
 import Avatar from '@mui/material/Avatar';
@@ -46,9 +47,10 @@ function Home() {
             alignItems: 'center',
           }}
         >
-          <Typography fontSize={60}>
+          <Typography fontSize={80} sx={{margin:'10% 30%'}} className='text-focus-in'>
             Alabaster
           </Typography>
+          {/* <h1 id='text-focus-in'>123</h1> */}
         </Box>
       </Container>
     </ThemeProvider>
